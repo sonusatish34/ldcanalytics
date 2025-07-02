@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dozzy-customer-app",
+  "private_key_id": "a5bbc99ef184fa6dac406ce122fe8aacc879bb15",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCsYejijBd+wC7s\nJe7/HnrDXnWPlDq3XgEEpltoGYckyB1ANFDKMgmzK+ZVG6kQ40n4UqtFYeJv2jsi\nNmirTARqd/52b1Xzz5Cb18/isyw3EQCRpkCmoBEtclCIUOni69gG+h0ziItP+Zfj\n5R3YC9iXD3weHhPcsv3+JJYzeiVB4qw1URv5ilW/SFVdKdUCdvv0JybQLUY9Gy06\nBWk8LLkGcZmyhm0KK+y2UjDRaVD4NVoyH2mDeI7+YDO4rxDqU87qyqV6+rqll1yk\nQR0+BXgxPP9KIBV9DwVRDv+ovoZcs1E7xlC0a/v57HDuigUnQX53SFnHgCY7EPBm\nSq+bN3G1AgMBAAECggEAEBUHAee5o2tw6pAewXIJraNo4AR0to8QakDOQ00qZLM/\nY1zeHVcDZ6dUqE5Z0gevwCPk8vv5q59rp+VKk5Hr0YuwqOz50wgOK4k7+Eroo5ne\n+Iz5osdJLaO+Fqbx2Gf8sf3wmSeyfjtra76q2kaUpiyIKFPRsjkyurHqyhJUWoE7\nLmoDhtbgECXZ4B3aJB4UT/ZtLqjoL2SHb+5JNu1dtq05Gl4pZa5lNslb2HoPjA1u\n9Q5S2SJUelSrb10e6Ab2gp7w/sXOl+w+CtPyHYcvxhGXdDTCJ6i8zun4NR/XobzW\nn373a/WW/jHV55CXfwgz5MLK0UsFXcgIGJTUWLer6wKBgQDv4n09DI8rndBCKgWf\nruyA8VrYJqSw9ONE92X59pdUvOkxK6uUjiqWE0sAJzSC2u9kI5OYiM3JIl6mPvZp\n8Co2Ga3e/I8AVCVMTqApmwjCpSh7e3PDM35Ep2eBkoc8HaWlHMoW2/5I01VTRxb0\n/d/5Hp9xpzsRItyZnN/x/u9XSwKBgQC39oYpoL1wOFj8TiNW1J+yk94WxrL/NuyR\nwjD2LMd57qZVaMnCMflNxEikK4ogz04jrLK+1lgqbKH68znCzrwejZI5BvP/zkKF\nm/3gpItsnrQ2hhi6hq+nbDgpgzHHxq96S7Sjg67mfEGnslQudNRL7FWaZ6MS5c3j\naMqJA0m6/wKBgAttbK3l1UQspmkge1gaCyYxWTSG0r2jTNhSOMdpmdftj+ZJwEi5\nZQn1LVN6iqPZLiJFF5jim3sDaiLdSPvO9xPQsVm4Ck/nskcqT7LrscUj/QO049Te\ntRssJmAjzNFuUB/HeVERddGeT6hB8LQHDA5gCRRu9P9h+8RNltV+YYR1AoGAcluJ\noy8NFEmy54UbasraS4SoNrhmZUibXzC8hwvnJOE5/TYa1eGC/Njb31JBl4vHI14j\n74YHYLgPKZUxfuxM/SE8mL69x3NM3wnNlGw1T9yIYqyRisJXR1h6wTORKoNUak3N\niSg+/YCYv8qXkhmGL3xG6qkqMoEwsAFghjPJDbkCgYBg831lTdpJQIFvSjOYYuXg\nJsC+9XODrej/+pRftjORtzYm7vkfa1SjPCBm1LYXgY9tGJdT0wXjNWpWWrvOF+4y\nl4jvk6W0zaVKzuqJw0C+imAzyX1dZktXczZx4zK7O87Z2ib0EV6Dk54myeTYgYKq\nOoCYzN2N9lOT0In9CGGlRg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "dozzyanalytics@dozzy-customer-app.iam.gserviceaccount.com",
+  "client_id": "111188842106728666338",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dozzyanalytics%40dozzy-customer-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

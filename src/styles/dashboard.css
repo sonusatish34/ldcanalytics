@@ -11,6 +11,12 @@
   justify-content: space-between;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+.single__card:hover {
+    transform: scale(1.1);
 }
 
 .single__card:nth-child(1) {
@@ -60,11 +66,12 @@
 }
 
 .stats {
-  background: var(--primary-color);
-  padding: 30px;
+  background: white;
+  padding: 10px;
   border-radius: 5px;
-  height: 320px;
-  padding-bottom: 50px;
+  /* height: 320px; */
+  /* padding-bottom: 50px; */
+  padding-top: 10px;
 }
 
 .tooltip__style {
@@ -73,11 +80,16 @@
 }
 
 .stats__title {
-  color: #fff;
+  color: #000;
   font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
+/* .bookvscancel {
+color: red;
+display: flex;
+
+} */
 
 .recommend__cars-wrapper {
   display: grid;
@@ -90,23 +102,30 @@
   padding: 20px;
   border-radius: 5px;
   cursor: pointer;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
 }
-
 .recommend__car-card:nth-child(1) {
-  background: var(--recommend-car01-bg);
+  
 }
 .recommend__car-card:nth-child(2) {
-  background: var(--recommend-car02-bg);
+  img {
+    scale: 1;
+  }
 }
 .recommend__car-card:nth-child(3) {
-  background: var(--recommend-car03-bg);
+  img {
+    scale: 0.9;
+  }
 }
+
+
 
 .recommend__car-top h5 {
   display: flex;
   align-items: center;
   column-gap: 1rem;
-  color: var(--body-bg);
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -117,6 +136,10 @@
 .recommend__car-bottom h4 {
   font-size: 1.3rem;
   margin: 10px 0px;
+}
+.recommend__car-bottom {
+  display: flex;
+  justify-content: space-between;
 }
 
 .recommend__car-other {
