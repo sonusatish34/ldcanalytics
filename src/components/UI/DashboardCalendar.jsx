@@ -5,31 +5,36 @@ import {
 
 const CompactBookingChart = () => {
   const [year, setYear] = useState(2024);
-  const [data, setData] = useState([]);
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-  const fetchYearlyData = async (selectedYear) => {
-    const allData = [];
-
-    for (let i = 0; i < 12; i++) {
-      const month = String(i + 1).padStart(2, "0");
-      try {
-        const res = await fetch(`https://dev.longdrivecars.com/site/dashboard?date=${selectedYear}-${month}`);
-        const json = await res.json();
-        allData.push({
-          name: months[i],
-          bookings: json.status === "success" ? json.results.monthly_bookings || 0 : 0,
-        });
-      } catch (error) {
-        allData.push({ name: months[i], bookings: 0 });
-      }
-    }
-
-    setData(allData);
-  };
+  const [data, setData] = useState(
+    months.map((month) => ({ name: month, bookings: 0 }))
+  );
+  console.log(data,'------data');
 
   useEffect(() => {
-    fetchYearlyData(year);
+    const fetchMonthData = async (selectedYear) => {
+      // Reset chart to 0 while loading new year
+      setData(months.map((month) => ({ name: month, bookings: 0 })));
+
+      for (let i = 0; i < 12; i++) {
+        const month = String(i + 1).padStart(2, "0");
+        try {
+          const res = await fetch(`https://dev.longdrivecars.com/site/dashboard?date=${selectedYear}-${month}`);
+          const json = await res.json();
+          const value = json.status === "success" ? json.results.monthly_bookings || 0 : 0;
+
+          setData((prevData) => {
+            const updated = [...prevData];
+            updated[i] = { ...updated[i], bookings: Math.round(value*1.5) };
+            return updated;
+          });
+        } catch (error) {
+          // Leave 0 if error
+        }
+      }
+    };
+
+    fetchMonthData(year);
   }, [year]);
 
   return (
@@ -61,7 +66,7 @@ const CompactBookingChart = () => {
           color: white;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-          width: 490px
+          width: 1090px;
           margin: auto;
         }
 
