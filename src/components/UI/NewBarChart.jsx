@@ -32,6 +32,10 @@ const ComponentName = props => {
 
   const [realtimeData, setRealtimeData] = useState(null)
   const [realtimeDataCity, setRealtimeDataCity] = useState(null)
+  
+  console.log(process.env.GOOGLE_PRIVATE_KEY,'GOOGLE_PRIVATE_KEY');
+  console.log(process.env.REACT_APP_GOOGLE_CLIENT_EMAIL_LDC,'REACT_APP_GOOGLE_CLIENT_EMAIL_LDC');
+  
 
   useEffect(() => {
     const fetchRealtime = async () => {
