@@ -36,20 +36,21 @@ const ComponentName = props => {
   useEffect(() => {
     const fetchRealtime = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/analytics/realtime')
+        const res = await axios.get('https://ldcanalytics-drab.vercel.app/api/analytics/realtime')
         setRealtimeData(res.data)
       } catch (err) {
         console.error('Realtime fetch error', err)
       }
-    }
+    } 
     const fetchRealtimeCities = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/analytics/by-city')
+        const res = await axios.get('https://ldcanalytics-drab.vercel.app/api/analytics/by-city')
         setRealtimeDataCity(res.data)
       } catch (err) {
         console.error('Realtime fetch error', err)
       }
     }
+    // https://ldcanalytics-drab.vercel.app/api/analytics/realtime
 
     fetchRealtime()
     fetchRealtimeCities()
@@ -66,18 +67,18 @@ const ComponentName = props => {
               <>
                 {/* <li>Total Rows: {realtimeData.rows.length}</li> */}
                 <li>
-                  Total Active User-s:{' '}
-                  {realtimeData.rows.reduce(
+                  Total Active Users:{' '}
+                  <span style={{fontWeight:'700',fontSize:'20px'}}>{realtimeData.rows.reduce(
                     (sum, row) => sum + parseInt(row.metricValues[0].value),
                     0
-                  )}
+                  )}</span>
                 </li>
               </>
             )}
           </ul>
         </div>
 
-        <div className='chart-container'>
+        <div className='chart-container_chart'>
           <Bar
           height={300}
           width={800}
@@ -101,12 +102,12 @@ const ComponentName = props => {
           />
         </div>
 
-        <div className='city-table'>
+        <div style={{paddingTop:'20px', paddingLeft:'30px'}} className='city-table'>
           <table>
             <thead>
-              <tr>
+              <tr style={{color:"black"}}>
                 <th>CITY</th>
-                <th>ACTIVE USERS89</th>
+                <th>ACTIVE USERS</th>
               </tr>
             </thead>
             {console.log(realtimeDataCity, 'jkk')}
@@ -177,6 +178,18 @@ const ComponentName = props => {
           <div className='realtime-link'>View realtime ➜</div>
         </div>
       </div>
+      <style jsx>{`
+        .chart-container_chart {
+          background: #1a1f36;
+          padding: 1.2rem;
+          border-radius: 12px;
+          color: white;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          width: 490px;
+          margin: auto;
+        }
+      `}</style>
     </div>
   )
 }

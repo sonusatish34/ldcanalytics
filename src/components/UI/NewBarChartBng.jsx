@@ -44,7 +44,7 @@ const ComponentName = props => {
     }
     const fetchRealtimeCities = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/analytics/by-city-bangalore')
+        const res = await axios.get('http://localhost:4000/analytics/by-city-bangalore');
         setRealtimeDataCity(res.data)
       } catch (err) {
         console.error('Realtime fetch error', err)

@@ -92,7 +92,7 @@ function ActiveUsersDashboard () {
   useEffect(() => {
     const fetchRealtime = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/analytics/realtime')
+        const res = await axios.get('https://your-vercel-domain.vercel.app/api/analytics/realtime')
         setRealtimeData(res.data)
       } catch (err) {
         console.error('Realtime fetch error', err)

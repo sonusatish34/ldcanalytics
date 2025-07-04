@@ -4,7 +4,7 @@ import {
 } from "recharts";
 
 const CompactBookingChart = () => {
-  const [year, setYear] = useState(2024);
+  const [year, setYear] = useState(2025);
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const [data, setData] = useState(
     months.map((month) => ({ name: month, bookings: 0 }))
@@ -25,7 +25,7 @@ const CompactBookingChart = () => {
 
           setData((prevData) => {
             const updated = [...prevData];
-            updated[i] = { ...updated[i], bookings: Math.round(value*1.5) };
+            updated[i] = { ...updated[i], bookings: Math.round(value*1.6) };
             return updated;
           });
         } catch (error) {
@@ -40,14 +40,14 @@ const CompactBookingChart = () => {
   return (
     <div className="chart-container">
       <div className="header">
-        <h3>Miles Statistics</h3>
+        <h3>.</h3>
         <select value={year} onChange={(e) => setYear(Number(e.target.value))}>
           <option value={2024}>2024</option>
           <option value={2025}>2025</option>
         </select>
       </div>
 
-      <ResponsiveContainer width={1070} height={360}>
+      <ResponsiveContainer style={{paddingTop:'10px'}} width={1070} height={360}>
         <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
           <XAxis dataKey="name" stroke="#ccc" />
           <YAxis stroke="#ccc" />
@@ -66,7 +66,7 @@ const CompactBookingChart = () => {
           color: white;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-          width: 1090px;
+          width: 1176px;
           margin: auto;
         }
 

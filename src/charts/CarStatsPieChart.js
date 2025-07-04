@@ -14,9 +14,9 @@ const CarStatsPieChart = ({ data }) => {
   return (
     <div style={{ width: '500px' }}>
       {/* Custom Legend */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'center',alignContent:"center",gap:"10px", marginTop: 10 , marginBottom: 10 }}>
         {carPieStatsData.map((entry, index) => (
-          <div key={index} style={{ display: 'flex', alignItems: 'center', marginRight: 20 }}>
+          <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
             <div
               style={{
                 width: 12,

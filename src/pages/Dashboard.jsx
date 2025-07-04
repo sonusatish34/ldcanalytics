@@ -11,6 +11,9 @@ import recommendCarsData from '../assets/dummy-data/recommendCars'
 import { PieChart } from 'recharts'
 import NewBarChart from '../components/UI/NewBarChart'
 import NewBarChartBng from '../components/UI/NewBarChartBng'
+import { FaCarAlt, FaUserCheck } from 'react-icons/fa'
+import StatCards from '../components/reuseable/StatCards'
+import ImagesTwo from '../components/UI/ImagesTwo'
 const Dashboard = () => {
   const [dshList, setDshList] = useState()
   console.log(dshList, 'final')
@@ -35,9 +38,6 @@ const Dashboard = () => {
       setDshList(items?.results)
     }
     GetDashboard()
-    const apiKey = process.env.REACT_APP_API_KEY
-
-    console.log('My API Key:', apiKey) // This will print your Vercel or local key  }, [])
   }, [])
   const carObj = {
     title: 'Total Cars',
@@ -82,15 +82,27 @@ const Dashboard = () => {
     totalNumber: 2167,
     icon: 'ri-timer-flash-line'
   }
+
+  const stats = [
+    {
+      title: 'Total Cars',
+      value: 17642,
+      icon: <FaCarAlt />,
+      gradient: 'card-orange'
+    },
+    {
+      title: 'Booked Clients',
+      value: 216977,
+      icon: <FaUserCheck />,
+      gradient: 'card-green'
+    }
+  ]
+
   return (
     <div className='dashboard'>
       <div className='dashboard__wrapper'>
-        <div className='dashboard__cards'>
-          <SingleCard item={carObj} />
-          {/* <SingleCard item={tripObj} /> */}
-
-          <SingleCard item={clientObj} />
-          {/* <SingleCard item={distanceObj} /> */}
+        <div className='total_and_bookngs'>
+          <StatCards />
         </div>
         <p style={{ padding: '20px 2px', fontSize: '30px' }}>Active Cars</p>
         <div className='dashboard__cards'>
@@ -103,12 +115,11 @@ const Dashboard = () => {
           style={{
             display: 'flex',
             justifyContent: 'normal',
-            gap: '30px',
+            gap: '40px',
             padding: '10px 0px',
             alignItems: ''
           }}
         >
-          {/* <NewBarChart /> */}
           <NewBarChart />
           <div
             style={{ margin: '32px 2px' }}
@@ -118,7 +129,7 @@ const Dashboard = () => {
               style={{
                 textAlign: 'center',
                 fontSize: '22px',
-                paddingBottom: '10px'
+                paddingTop: '10px'
               }}
             >
               <p>Bookings Vs Cancellation</p>
@@ -128,22 +139,71 @@ const Dashboard = () => {
         </div>
         {/* <p style={{position:'relative', color:'red', right:'0'}}>jo</p> */}
         <div className='statics'>
-          <div style={{ background: '#f9f9f9' }} className='stats'>
+          <div style={{ background: '' }} className='stats'>
+          <div style={{ background: '' }} className='stats'>
             {/* <h3 className='stats__title'>Car Statistics</h3> */}
             {/* <CarStatsChart /> */}
             <h3 style={{ paddingBottom: '20px' }}>Annual Bookings Stats</h3>
             <DashboardCalendar />
           </div>
         </div>
-
-        <div className='recommend__cars-wrapper'>
-          {recommendCarsData.map(item => (
-            <RecommendCarCard item={item} key={item.id} />
-          ))}
-        </div>
       </div>
-      {/* <ActiveUsersDashboard /> */}
+    
+      {/* <ImagesTwo /> */}
+    </div>
     </div>
   )
 }
+;<style jsx>{`
+  .stats-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .stat-card {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Gradients */
+  .card-orange {
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+  }
+
+  .card-green {
+    background: linear-gradient(to right, #00c9a7, #007f73);
+  }
+
+  .stat-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .stat-icon {
+    font-size: 30px;
+    opacity: 0.85;
+  }
+`}</style>
+
 export default Dashboard

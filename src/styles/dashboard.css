@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 16px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -55,6 +55,11 @@
 .dashboard__cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+}
+.total_and_bookings{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
 }
 
@@ -159,3 +164,54 @@ display: flex;
   align-items: center;
   column-gap: 1rem;
 }
+
+.stats-container {
+  /* display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px; */
+}
+
+.stat-card {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Gradients */
+.card-orange {
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+}
+
+.card-green {
+  background: linear-gradient(to right, #00c9a7, #007f73);
+}
+
+.stat-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stat-icon {
+  font-size: 30px;
+  opacity: 0.85;
+}
+
