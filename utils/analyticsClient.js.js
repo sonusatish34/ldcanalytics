@@ -4,7 +4,7 @@ const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 const analyticsDataClient = new BetaAnalyticsDataClient({
   credentials: {
     client_email: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL_LDC,
-    private_key: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL_LDC?.replace(/\\n/g, '\n'),
+    private_key: process.env.REACT_APP_API_KEY?.replace(/\\n/g, '\n'),
   },
 });
 
