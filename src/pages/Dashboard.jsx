@@ -35,9 +35,10 @@ const Dashboard = () => {
       setDshList(items?.results)
     }
     GetDashboard()
-const apiKey = process.env.REACT_APP_API_KEY;
+    const apiKey = process.env.REACT_APP_API_KEY
 
-console.log("My API Key:", apiKey); // This will print your Vercel or local key  }, [])
+    console.log('My API Key:', apiKey) // This will print your Vercel or local key  }, [])
+  }, [])
   const carObj = {
     title: 'Total Cars',
     totalNumber: dshList?.total_cars,
@@ -109,14 +110,16 @@ console.log("My API Key:", apiKey); // This will print your Vercel or local key 
         >
           {/* <NewBarChart /> */}
           <NewBarChart />
-          <div style={{ margin:'32px 2px' }}  className='stats analytics-widget'>
+          <div
+            style={{ margin: '32px 2px' }}
+            className='stats analytics-widget'
+          >
             <h3
               style={{
                 textAlign: 'center',
                 fontSize: '22px',
                 paddingBottom: '10px'
               }}
-             
             >
               <p>Bookings Vs Cancellation</p>
             </h3>
@@ -125,12 +128,10 @@ console.log("My API Key:", apiKey); // This will print your Vercel or local key 
         </div>
         {/* <p style={{position:'relative', color:'red', right:'0'}}>jo</p> */}
         <div className='statics'>
-          
-
           <div style={{ background: '#f9f9f9' }} className='stats'>
             {/* <h3 className='stats__title'>Car Statistics</h3> */}
             {/* <CarStatsChart /> */}
-            <h3 style={{paddingBottom:'20px'}}>Annual Bookings Stats</h3>
+            <h3 style={{ paddingBottom: '20px' }}>Annual Bookings Stats</h3>
             <DashboardCalendar />
           </div>
         </div>
@@ -145,5 +146,4 @@ console.log("My API Key:", apiKey); // This will print your Vercel or local key 
     </div>
   )
 }
-
 export default Dashboard
