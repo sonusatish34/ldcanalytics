@@ -35,8 +35,9 @@ const Dashboard = () => {
       setDshList(items?.results)
     }
     GetDashboard()
-    console.log(process.env.NEXT_PUBLIC_API_KEY, 'NEXT_PUBLIC_API_KEY api url')
-  }, [])
+const apiKey = process.env.REACT_APP_API_KEY;
+
+console.log("My API Key:", apiKey); // This will print your Vercel or local key  }, [])
   const carObj = {
     title: 'Total Cars',
     totalNumber: dshList?.total_cars,
