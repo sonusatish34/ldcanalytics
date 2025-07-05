@@ -143,7 +143,7 @@ const Dashboard = () => {
           <div style={{ background: '' }} className='stats'>
             {/* <h3 className='stats__title'>Car Statistics</h3> */}
             {/* <CarStatsChart /> */}
-            <h3 style={{ paddingBottom: '20px' }}>Annual Bookings Stats</h3>
+            <h3 style={{ paddingBottom: '20px',fontSize:'30px' }}>Annual Bookings Stats</h3>
             <DashboardCalendar />
           </div>
         </div>

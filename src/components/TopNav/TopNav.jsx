@@ -6,9 +6,9 @@ import "./TopNav.css";
 
 const TopNav = () => {
   return (
-    <div className="top__nav">
-      <div className="top__nav-wrapper">
-        <div className="top__nav-right">
+    <div className="">
+      <div className="top__nav-">
+        <div className="top__nav-">
           
           <div className="header_text">
             Long Drive Cars Analytics Data

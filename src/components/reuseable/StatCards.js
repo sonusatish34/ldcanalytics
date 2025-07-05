@@ -11,7 +11,7 @@ const stats = [
   },
   {
     title: "Customer Base",
-    value: 616977,
+    value: 1000000,
     icon: <FaUserCheck />,
     gradient: "card-green",
     year:'2024-25'

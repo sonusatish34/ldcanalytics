@@ -28,6 +28,9 @@
   font-weight: 500;
   font-size: 1.5rem;
   padding-left: 2rem;
+  text-align: center;
+  padding-top: 20px;
+
 }
 
 .search__box {
