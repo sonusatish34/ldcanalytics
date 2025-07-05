@@ -14,11 +14,10 @@ const ComponentName = () => {
     Array.from({ length: 30 }, () => Math.floor(Math.random() * 10 + 5))
 
   const [perMinuteData, setPerMinuteData] = useState(generateBarData())
-
   const [totalUsers, setTotalUsers] = useState(430)
   const [cityUsers, setCityUsers] = useState(baseCityUsers)
   const [remainingTotal, setRemainingTotal] = useState(
-    430 - baseCityUsers.reduce((sum, c) => sum + c.activeUsers, 0)
+    totalUsers - baseCityUsers.reduce((sum, c) => sum + c.activeUsers, 0)
   )
 
   // Update chart every 5 seconds
@@ -29,20 +28,34 @@ const ComponentName = () => {
     return () => clearInterval(interval)
   }, [])
 
-  // Update total users (±5 to ±10) every 30 seconds
+  // Adjust totalUsers and cityUsers every 30 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setTotalUsers(prev => {
-        const change = Math.floor(Math.random() * 11) - 5 // random between -5 and +5
-        const newTotal = Math.max(400, prev + change) // keep minimum 400
-        const newRemaining =
-          newTotal - baseCityUsers.reduce((sum, c) => sum + c.activeUsers, 0)
-        setRemainingTotal(newRemaining)
-        return newTotal
+      // Change total by ±5
+      const change = Math.floor(Math.random() * 11) - 5
+      const newTotal = Math.max(400, totalUsers + change)
+
+      // Randomly update each city's count by ±1 or ±2
+      const updatedCities = cityUsers.map(city => {
+        const adjustment = Math.floor(Math.random() * 5) - 2 // ±2
+        return {
+          ...city,
+          activeUsers: Math.max(0, city.activeUsers + adjustment)
+        }
       })
-    }, 20000)
+
+      // Recalculate city total
+      const citySum = updatedCities.reduce((sum, c) => sum + c.activeUsers, 0)
+      const newRemaining = Math.max(0, newTotal - citySum)
+
+      // Set all states
+      setTotalUsers(newTotal)
+      setCityUsers(updatedCities)
+      setRemainingTotal(newRemaining)
+    }, 30000)
+
     return () => clearInterval(interval)
-  }, [])
+  }, [cityUsers, totalUsers])
 
   return (
     <div>
@@ -124,7 +137,7 @@ const ComponentName = () => {
               </tr>
             </tbody>
           </table>
-          <div className='realtime-link'>View realtime ➜</div>
+          <div style={{fontStyle:'italic'}} className='realtime-link'>realtime</div>
         </div>
       </div>
 

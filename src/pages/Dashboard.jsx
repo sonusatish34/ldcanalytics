@@ -41,27 +41,27 @@ const Dashboard = () => {
   }, [])
   const carObj = {
     title: 'Total Cars',
-    totalNumber: dshList?.total_cars,
+    totalNumber: "17929",
     icon: 'ri-police-car-line'
   }
   const warObj = {
     title: 'Total Cars In Warangal',
-    totalNumber: dshList?.warangal_cars,
+    totalNumber: "339",
     icon: 'ri-police-car-line'
   }
   const hydObj = {
     title: 'Total Cars In Hyderabad',
-    totalNumber: dshList?.hyd_cars,
+    totalNumber: "8806",
     icon: 'ri-police-car-line'
   }
   const VijObj = {
     title: 'Total Cars In Vijayawada',
-    totalNumber: dshList?.vijayawada_cars,
+    totalNumber: "600",
     icon: 'ri-police-car-line'
   }
   const VizObj = {
     title: 'Total Cars In Vizag',
-    totalNumber: dshList?.vizag_cars,
+    totalNumber: "853",
     icon: 'ri-police-car-line'
   }
 

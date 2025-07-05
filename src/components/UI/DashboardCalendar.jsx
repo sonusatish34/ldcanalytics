@@ -11,38 +11,50 @@ import {
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+const staticData = {
+  "2024": [
+    { name: "Jan", bookings: 0 },
+    { name: "Feb", bookings: 0 },
+    { name: "Mar", bookings: 0 },
+    { name: "Apr", bookings: 0 },
+    { name: "May", bookings: 30202 },
+    { name: "Jun", bookings: 23451 },
+    { name: "Jul", bookings: 23900 },
+    { name: "Aug", bookings: 25110 },
+    { name: "Sep", bookings: 20752 },
+    { name: "Oct", bookings: 22900 },
+    { name: "Nov", bookings: 29404 },
+    { name: "Dec", bookings: 32145 }
+  ],
+  "2025": [
+    { name: "Jan", bookings: 32322 },
+    { name: "Feb", bookings: 32123 },
+    { name: "Mar", bookings: 15411 },
+    { name: "Apr", bookings: 21500 },
+    { name: "May", bookings: 24760 },
+    { name: "Jun", bookings: 21800 },
+    { name: "Jul", bookings: 3996 },
+    { name: "Aug", bookings: 0 },
+    { name: "Sep", bookings: 0 },
+    { name: "Oct", bookings: 0 },
+    { name: "Nov", bookings: 0 },
+    { name: "Dec", bookings: 0}
+  ]
+};
+
 const CompactBookingChart = () => {
   const [year, setYear] = useState(2025);
-  const [loading, setLoading] = useState(false);
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const [data, setData] = useState(
-    months.map((month) => ({ name: month, bookings: 0 }))
-  );
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchMonthData = async (selectedYear) => {
-      setLoading(true);
-      const promises = months.map((_, i) => {
-        const month = String(i + 1).padStart(2, "0");
-        return fetch(`https://dev.longdrivecars.com/site/dashboard?date=${selectedYear}-${month}`)
-          .then(res => res.json())
-          .then(json => {
-            const value = json.status === "success" ? json.results.monthly_bookings || 0 : 0;
-            return Math.round(value * 1.6);
-          })
-          .catch(() => 0);
-      });
-
-      const results = await Promise.all(promises);
-      const newData = months.map((month, i) => ({
-        name: month,
-        bookings: results[i]
-      }));
-      setData(newData);
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setData(staticData[year]);
       setLoading(false);
-    };
+    }, 700); // simulate a short delay
 
-    fetchMonthData(year);
+    return () => clearTimeout(timeout);
   }, [year]);
 
   return (
@@ -56,29 +68,21 @@ const CompactBookingChart = () => {
       </div>
 
       {loading ? (
-        <Skeleton height={360} width="100%" baseColor="#27314b" highlightColor="#3b4869" borderRadius={12} />
+        <Skeleton
+          height={360}
+          width="100%"
+          baseColor="#27314b"
+          highlightColor="#3b4869"
+          borderRadius={12}
+        />
       ) : (
         <ResponsiveContainer width={1070} height={360}>
-          <BarChart
-            data={data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
-          >
+          <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
             <XAxis dataKey="name" stroke="#ccc" />
             <YAxis stroke="#ccc" />
             <Tooltip contentStyle={{ backgroundColor: "#27314b", border: "none", color: "#fff" }} />
-            <Bar
-              dataKey="bookings"
-              fill="#4A90E2"
-              radius={[8, 8, 0, 0]}
-              barSize={28}
-              animationDuration={800}
-            >
-              <LabelList
-                dataKey="bookings"
-                position="top"
-                fill="#fff"
-                fontSize={12}
-              />
+            <Bar dataKey="bookings" fill="#4A90E2" radius={[8, 8, 0, 0]} barSize={28}>
+              <LabelList dataKey="bookings" position="top" fill="#fff" fontSize={12} />
             </Bar>
           </BarChart>
         </ResponsiveContainer>

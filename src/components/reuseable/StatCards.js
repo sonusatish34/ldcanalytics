@@ -10,11 +10,18 @@ const stats = [
     gradient: "card-orange",
   },
   {
-    title: "Customer Base",
-    value: 1000000,
+    title: "Total Bookings",
+    value: "224307",
     icon: <FaUserCheck />,
     gradient: "card-green",
     year:'2024-25'
+  },
+  {
+    title: "Customer Base",
+    value: "10L",
+    icon: <FaUserCheck />,
+    gradient: "card-green",
+    year:''
   },
 ];
 
