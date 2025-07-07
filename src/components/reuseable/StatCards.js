@@ -11,21 +11,22 @@ const stats = [
   },
   {
     title: "Total Bookings",
-    value: "224307",
+    value: 359776,
     icon: <FaUserCheck />,
     gradient: "card-green",
     year:'2024-25'
   },
   {
     title: "Customer Base",
-    value: "10L",
+    value: 10,
+    lakhLabel: "L",
     icon: <FaUserCheck />,
     gradient: "card-green",
     year:''
   },
 ];
 
-const StatCard = ({ title, value, icon, gradient,year }) => {
+const StatCard = ({ title, value, icon, gradient,year,lakhLabel }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const StatCard = ({ title, value, icon, gradient,year }) => {
     <div className={`stat-card ${gradient}`}>
       <div className="stat-info">
         <p className="stat-title">{title}</p>
-        <h2 className="stat-value">{displayValue.toLocaleString()}+</h2>
+        <h2 className="stat-value">{displayValue.toLocaleString()}{lakhLabel?lakhLabel:''}+</h2>
       </div>
       <div style={{display:'flex' ,flexDirection:'column',gap:"10px"}} className="stat-icon">
         {year && <span className="year_card">{year}</span>}
