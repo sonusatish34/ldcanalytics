@@ -7,10 +7,12 @@ const CarStatsPieChart = ({ data }) => {
   console.log(data, 'data in pie chart');
 
   const carPieStatsData = [
-    { name: "Cancellation", value: data?.bookings_vs_cancel.cancel_count },
-    { name: "Bookings", value: data?.bookings_vs_cancel.bookings_count },
-  ];
+    { name: "Cancellation", value: 23440 },
+    { name: "Bookings", value: 171984 },
 
+  ];
+// 171984
+//52440
   return (
     <div style={{ width: '500px' }}>
       {/* Custom Legend */}
