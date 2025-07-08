@@ -14,7 +14,7 @@ const ComponentName = () => {
     Array.from({ length: 30 }, () => Math.floor(Math.random() * 10 + 5))
 
   const [perMinuteData, setPerMinuteData] = useState(generateBarData())
-  const [totalUsers, setTotalUsers] = useState(430)
+  const [totalUsers, setTotalUsers] = useState(365)
   const [cityUsers, setCityUsers] = useState(baseCityUsers)
   const [remainingTotal, setRemainingTotal] = useState(
     totalUsers - baseCityUsers.reduce((sum, c) => sum + c.activeUsers, 0)
@@ -33,7 +33,7 @@ const ComponentName = () => {
     const interval = setInterval(() => {
       // Change total by ±5
       const change = Math.floor(Math.random() * 11) - 5
-      const newTotal = Math.max(400, totalUsers + change)
+      const newTotal = Math.max(350, totalUsers + change)
 
       // Randomly update each city's count by ±1 or ±2
       const updatedCities = cityUsers.map(city => {
@@ -52,7 +52,7 @@ const ComponentName = () => {
       setTotalUsers(newTotal)
       setCityUsers(updatedCities)
       setRemainingTotal(newRemaining)
-    }, 30000)
+    }, 20000)
 
     return () => clearInterval(interval)
   }, [cityUsers, totalUsers])
